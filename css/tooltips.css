@@ -1,0 +1,114 @@
+/*VALIDACIONES*/
+.labelInputs{
+  font-size: 15px;
+  color: #333333;
+  display: block;
+}
+.required{
+	border: 1px solid #f5365c !important;
+  border-radius: 4px;
+}
+
+a.tooltips ,
+dd.tooltips {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-align: initial;/*requerido para solucion de problemas seanjamu*/
+}
+a.tooltips span.spanValidacion ,
+dd.tooltips span.spanValidacion {
+  position: absolute;
+  width:100%;
+  padding: 0px 5px 0px 5px;
+  color: #FFFFFF;
+  background: #f5365c;
+  text-align: center;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  font-size: 12px;
+}
+a.tooltips span.spanValidacion:after ,
+dd.tooltips span.spanValidacion:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #f5365c;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+/* decoracion para las validaciones en campos especiales sin bordes*/
+a.tooltips span.spanValidacionEspecial ,
+dd.tooltips span.spanValidacionEspecial {
+  position: absolute;
+  width:100%;
+  padding: 0px 5px 0px 5px;
+  color: #FFFFFF;
+  background: #f5365c;
+  height: auto;
+  text-align: center;
+  display: none;
+  border-radius: 3px;
+  opacity: 0.9;
+  bottom: 45px;
+  z-index: 999;
+}
+a.tooltips span.spanValidacionEspecial:after ,
+dd.tooltips span.spanValidacionEspecial:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #f5365c;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+/* clases para mensaje de validacion en datepicker */
+a.tooltipsdatepicker ,
+dd.tooltipsdatepicker {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+a.tooltipsdatepicker span ,
+dd.tooltipsdatepicker span {
+  position: absolute;
+  width:100%;
+  padding: 0px 5px 0px 5px;
+  color: #FFFFFF;
+  background: #f5365c;
+  height: auto;
+  text-align: center;
+  display: none;
+  border-radius: 3px;
+  /*opacity: 0.9;*/
+  bottom: 7px;
+  z-index: 999;
+}
+a.tooltipsdatepicker span:after ,
+dd.tooltipsdatepicker span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #f5365c;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+/*para pantallas con tamaños inferiores a 768px*/
+@media (max-width: 768px) {
+  a.tooltips span.spanValidacion ,
+  dd.tooltips span.spanValidacion {
+    font-size: 10px;
+  }
+}

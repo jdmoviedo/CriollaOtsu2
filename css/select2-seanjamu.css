@@ -1,0 +1,17 @@
+/*para que el select dos muestre todo
+el texto del item seleccionado*/
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+	white-space: normal !important;
+}
+/** Select2 **/
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 0px !important;
+	min-height: 34px;
+}
+
+.select2-container {
+	width: 100% !important;
+}

@@ -1,0 +1,36 @@
+.datepicker-readonly{
+	background-color: rgba(53, 73, 93, 0.1) !important;
+	text-transform: uppercase;
+}
+
+
+/*para pantallas con tamaños inferiores a 500px*/
+@media (max-width: 500px) {
+	/* estilos para input-group personalizado en moviles
+	que permite que se vean con un ancho del 100% los addons */
+	.custom-input-group.input-group .input-group-btn {
+		width:99%;
+		display:block;
+		margin-bottom:5px;
+	}
+	.custom-input-group.input-group .input-group-btn .btn {
+		width: 34%;
+	}
+	.custom-input-group.input-group .input-group-btn .btn:last-child {
+		/* border-radius:0 4px 4px 0 */
+	}
+	.custom-input-group {
+		display: block
+	}
+	.custom-input-group.input-group  .input-group-addon {
+		clear: both;
+		display: block;
+		width: 100%;
+		border: 1px solid #ccc;
+		/* border-radius: 4px; */
+	}
+	.custom-input-group.input-group .input-group-addon + .form-control {
+		/* border-radius: 4px; */
+		margin-bottom: 5px;
+	}
+}

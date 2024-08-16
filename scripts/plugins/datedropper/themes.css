@@ -1,0 +1,25 @@
+div.datedropper.dark {
+
+    --dd-color1: #fd4741;
+    --dd-color2: #4D4D4D;
+    --dd-color3: #FF;
+    --dd-color4: #FFF;
+
+    --dd-radius: 16px;
+    --dd-width: 200px;
+    --dd-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+
+}
+
+div.datedropper.light {
+
+    --dd-color1: #fd4741;
+    --dd-color2: #FFF;
+    --dd-color3: #4D4D4D;
+    --dd-color4: #FFF;
+
+    --dd-radius: 16px;
+    --dd-width: 200px;
+    --dd-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+
+}

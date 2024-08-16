@@ -1,0 +1,14 @@
+.steps > ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style: none;
+}
+
+.steps > ul li a .number{
+	display: none;
+}
+
+.wizard .content > h3{
+	display: none;
+}
