@@ -39,6 +39,17 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                             echo json_encode($respuesta);
                         }
                         break;
+                    case "logOrden":
+                        $IdOrder = isset($_POST['IdOrder']) ? trim($_POST['IdOrder']) : null;
+                        if (
+                            validar::patronnumeros($IdOrder)
+                        ) {
+                            echo ModelOrder::logOrden($IdOrder);
+                        } else {
+                            $respuesta['status'] = "0";
+                            echo json_encode($respuesta);
+                        }
+                        break;
                 }
             }
         }

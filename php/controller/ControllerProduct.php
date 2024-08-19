@@ -22,7 +22,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 
                         if (
                             Validar::numeros($IdRestaurant) && Validar::numeros($IdTypeProduct) 
-                            && Validar::requerido($Description) && Validar::requerido($LongDescription) && Validar::numeros($Value) 
+                            && Validar::requerido($Description)  && Validar::numeros($Value) 
                         ) {
                             echo ModelProduct::crearProducto($IdRestaurant, $IdTypeProduct, $Description, $LongDescription, $Value);
                         } else {
@@ -55,7 +55,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 
                         if (
                             Validar::numeros($IdProduct) && Validar::numeros($IdRestaurant) && Validar::numeros($IdTypeProduct) 
-                            && Validar::requerido($Description) && Validar::requerido($LongDescription) && Validar::numeros($Value) 
+                            && Validar::requerido($Description) && Validar::numeros($Value) 
                         ) {
                             echo ModelProduct::editarProducto($IdProduct, $IdRestaurant, $IdTypeProduct, $Description, $LongDescription, $Value);
                         } else {

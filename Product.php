@@ -68,7 +68,7 @@ include_once('php/includes/Template.php');
                         <div class="col-md-12 form-group">
                             <a class="tooltips">
                                 <label for="Description">Descripcion</label>
-                                <input type="text" class="form-control requerido maxlength-input" name="Description" id="Description" title="Descripcion" placeholder="Descripcion" minlength="5" maxlength="100">
+                                <input type="text" class="form-control requerido maxlength-input" name="Description" id="Description" title="Descripcion" placeholder="Descripcion" minlength="4" maxlength="100">
                                 <span class="spanValidacion hidden"></span>
                             </a>
                         </div>

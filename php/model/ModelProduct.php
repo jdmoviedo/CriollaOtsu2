@@ -85,7 +85,7 @@ class ModelProduct
         date_default_timezone_set('America/Bogota');
         $fechaHoraActual = date('Y-m-d H:i:s');
 
-        $consultaValidarDescripcion = "SELECT * FROM Product where (Description like '%$Description%')";
+        $consultaValidarDescripcion = "SELECT * FROM Product where (Description = '$Description')";
         $resultadoValidarDescripcion = mysqli_query($mysqli, $consultaValidarDescripcion) or die("Error en la Consulta SQL: " . $consultaValidarDescripcion);
 
         if (mysqli_num_rows($resultadoValidarDescripcion) > 0) {
@@ -186,7 +186,7 @@ class ModelProduct
         $consultaValidarDescripcion = "SELECT 
         * 
         FROM Product 
-        where (Description like '%$Description%') and IdProduct != $IdProduct";
+        where (Description = '$Description') and IdProduct != $IdProduct";
         $resultadoValidarDescripcion = mysqli_query($mysqli, $consultaValidarDescripcion) or die("Error en la Consulta SQL: " . $consultaValidarDescripcion);
 
         if (mysqli_num_rows($resultadoValidarDescripcion) > 0) {

@@ -105,6 +105,7 @@ function filtrarRegistros() {
 function registrar(form) {
     var respuestavalidacion = validarcampos("#" + form);
     if (respuestavalidacion) {
+        var formData = new FormData(document.getElementById(form)); //necesario para enviar archivos
         if (edit == true) {
             formData.append("peticion", "editarTipoProducto");
         } else {

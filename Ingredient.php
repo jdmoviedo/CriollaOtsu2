@@ -60,7 +60,7 @@ include_once('php/includes/Template.php');
                         <div class="col-md-12 form-group">
                             <a class="tooltips">
                                 <label for="Description">Descripcion</label>
-                                <input type="text" class="form-control requerido maxlength-input" name="Description" id="Description" title="Descripcion" placeholder="Descripcion" minlength="5" maxlength="100" pattern="^[a-zA-Z\s]+$" data-pattern="Solo se permiten letras" data-pattern-replace="[^a-zA-Z\s]" oninput="limitecaracteres(this);">
+                                <input type="text" class="form-control requerido maxlength-input" name="Description" id="Description" title="Descripcion" placeholder="Descripcion" minlength="4" maxlength="100" pattern="^[a-zA-Z0-9ñÑ\s]+$" data-pattern="Solo se permiten letras" data-pattern-replace="[^a-zA-Z0-9ñÑ\s]" oninput="limitecaracteres(this);">
                                 <span class="spanValidacion"></span>
                             </a>
                         </div>

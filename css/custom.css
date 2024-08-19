@@ -587,7 +587,7 @@ table.dataTable thead th {
 .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.open::after,
 .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.nav-collapsed-open::after,
 .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.active::after {
-	background-color: #EA5A30;
+	background-color: #ee79a0;
 	height: 51px;
 	top: 0;
 }
@@ -600,7 +600,7 @@ table.dataTable thead th {
 }
 
 .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.nav-collapsed-open a.active i {
-	color: #EA5A30;
+	color: #ee79a0;
 }
 
 .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item .submenu-content a:not(.active),

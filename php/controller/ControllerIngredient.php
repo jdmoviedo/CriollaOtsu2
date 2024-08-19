@@ -17,7 +17,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                         $Description = isset($_POST['Description']) ? trim($_POST['Description']) : NULL;
 
                         if (
-                            Validar::letras($Description)
+                            Validar::requerido($Description)
                         ) {
                             echo ModelIngredient::crearIngrediente($Description);
                         } else {
@@ -44,7 +44,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                         $Description = isset($_POST['Description']) ? trim($_POST['Description']) : NULL;
 
                         if (
-                            Validar::numeros($IdIngredient) && Validar::letras($Description)
+                            Validar::numeros($IdIngredient) && Validar::requerido($Description)
                         ) {
                             echo ModelIngredient::editarIngrediente($IdIngredient, $Description);
                         } else {
