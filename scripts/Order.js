@@ -5,52 +5,57 @@ $("#dtOrder")
         columns: [
             {
                 title: "ID PEDIDO",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
             {
                 title: "RESTAURANTE",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
             {
                 title: "FECHA PEDIDO",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
             {
                 title: "NAMES",
-                className: "text-center text-nowrap",
-                responsivePriority: 1,
+                className: "text-md-center text-sm-start text-nowrap",
+                responsivePriority: 2,
             },
             {
                 title: "TELEFONO",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 2,
             },
             {
                 title: "DIRECCION",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 2,
             },
             {
                 title: "EMAIL",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 2,
             },
             {
                 title: "TOTAL",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
             {
                 title: "ESTADO",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
+                responsivePriority: 1,
+            },
+            {
+                title: "METODO DE PAGO",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
             {
                 title: "",
-                className: "text-center text-nowrap",
+                className: "text-md-center text-sm-start text-nowrap",
                 responsivePriority: 1,
             },
         ],
@@ -161,7 +166,7 @@ function detalleOrden(id) {
                     $("#OrderDetail").html(result.html);
                     $("#ModalOrder")
                         .find("h5.modal-title")
-                        .html("Detalle Pedido ID : " + id);
+                        .html("Orden : #" + id);
                     $("#ModalOrder").modal("show");
                     break;
                 case "2":
@@ -307,13 +312,141 @@ function logOrden(IdOrder) {
                     break;
                 case "1":
                     Swal.fire({
-                        title: "<strong>Trazabilidad Orden</strong>",
+                        title: "<strong>Trazabilidad Orden #"+IdOrder+"</strong>",
                         html: result.html,
                         showCloseButton: false,
                         confirmButtonText: "Cerrar",
                         confirmButtonColor: "#64a19d",
                         backdrop: true
                     });
+                    break;
+                default:
+                    break;
+            }
+        },
+        complete: function () {
+            $(".overlayCargue").fadeOut("slow");
+        },
+        error: function (xhr) {
+            console.log(xhr);
+            Swal.fire({
+                icon: "error",
+                title: "<strong>Error!</strong>",
+                html: "<h5>Se ha presentado un error, por favor informar al area de Sistemas.</h5>",
+                showCloseButton: true,
+                showConfirmButton: false,
+                cancelButtonText: "Cerrar",
+                cancelButtonColor: "#dc3545",
+                showCancelButton: true,
+                backdrop: true,
+            });
+        },
+    });
+}
+
+function orderPayment(IdOrder) {
+    $.ajax({
+        data: {
+            peticion: "orderPayment",
+            IdOrder: IdOrder,
+        }, //datos a enviar a la url
+        dataType: "json", //Si no se especifica jQuery automaticamente encontrará el tipo basado en el header del archivo llamado (pero toma mas tiempo en cargar, asi que especificalo)
+        url: urlControllerOrder, //url a donde hacemos la peticion
+        type: "POST",
+        beforeSend: function () {
+            $(".overlayCargue").fadeIn("slow");
+        },
+        success: function (result) {
+            var estado = result.status;
+            switch (estado) {
+                case "0":
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Se ha presentado un error, comuniquese con el area de sistemas.",
+                        icon: "error",
+                        showCancelButton: true,
+                        showConfirmButton: false,
+                        cancelButtonColor: "#d33",
+                        cancelButtonText: "Cerrar!",
+                    });
+                    break;
+                case "1":
+                    Swal.fire({
+                        title: "<strong>Referencias de Pago de la Orden #"+IdOrder+"</strong>",
+                        html: result.html,
+                        showCloseButton: false,
+                        confirmButtonText: "Cerrar",
+                        confirmButtonColor: "#64a19d",
+                        backdrop: true,
+                        width: 1000
+                    });
+                    break;
+                default:
+                    break;
+            }
+        },
+        complete: function () {
+            $(".overlayCargue").fadeOut("slow");
+        },
+        error: function (xhr) {
+            console.log(xhr);
+            Swal.fire({
+                icon: "error",
+                title: "<strong>Error!</strong>",
+                html: "<h5>Se ha presentado un error, por favor informar al area de Sistemas.</h5>",
+                showCloseButton: true,
+                showConfirmButton: false,
+                cancelButtonText: "Cerrar",
+                cancelButtonColor: "#dc3545",
+                showCancelButton: true,
+                backdrop: true,
+            });
+        },
+    });
+}
+
+function logOrderPayment(IdOrder, IdOrderPayment, Referencia) {
+    $.ajax({
+        data: {
+            peticion: "logOrderPayment",
+            IdOrderPayment: IdOrderPayment,
+        }, //datos a enviar a la url
+        dataType: "json", //Si no se especifica jQuery automaticamente encontrará el tipo basado en el header del archivo llamado (pero toma mas tiempo en cargar, asi que especificalo)
+        url: urlControllerOrder, //url a donde hacemos la peticion
+        type: "POST",
+        beforeSend: function () {
+            $(".overlayCargue").fadeIn("slow");
+        },
+        success: function (result) {
+            var estado = result.status;
+            switch (estado) {
+                case "0":
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Se ha presentado un error, comuniquese con el area de sistemas.",
+                        icon: "error",
+                        showCancelButton: true,
+                        showConfirmButton: false,
+                        cancelButtonColor: "#d33",
+                        cancelButtonText: "Cerrar!",
+                    });
+                    break;
+                case "1":
+                    Swal.fire({
+                        title: "<strong>Transacciones de la Referencia de Pago ("+Referencia+") de la Orden #"+IdOrder+"</strong>",
+                        html: result.html,
+                        showCloseButton: false,
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        confirmButtonColor: "#64a19d",
+                        confirmButtonText: "Regresar",
+                        backdrop: true,
+                        width: 1000
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            orderPayment(IdOrder);
+                        }
+                      });
                     break;
                 default:
                     break;

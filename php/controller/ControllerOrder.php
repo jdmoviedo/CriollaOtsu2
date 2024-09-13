@@ -50,6 +50,28 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                             echo json_encode($respuesta);
                         }
                         break;
+                    case "orderPayment":
+                        $IdOrder = isset($_POST['IdOrder']) ? trim($_POST['IdOrder']) : null;
+                        if (
+                            validar::patronnumeros($IdOrder)
+                        ) {
+                            echo ModelOrder::orderPayment($IdOrder);
+                        } else {
+                            $respuesta['status'] = "0";
+                            echo json_encode($respuesta);
+                        }
+                        break;
+                    case "logOrderPayment":
+                        $IdOrderPayment = isset($_POST['IdOrderPayment']) ? trim($_POST['IdOrderPayment']) : null;
+                        if (
+                            validar::patronnumeros($IdOrderPayment)
+                        ) {
+                            echo ModelOrder::logOrderPayment($IdOrderPayment);
+                        } else {
+                            $respuesta['status'] = "0";
+                            echo json_encode($respuesta);
+                        }
+                        break;
                 }
             }
         }

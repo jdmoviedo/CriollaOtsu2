@@ -47,10 +47,10 @@ include_once('php/includes/Template.php');
 </div>
 
 <div class="modal fade" id="ModalOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" style="min-width:90%">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title text-center"></h5>
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title"></h5>
             </div>
             <div class="modal-body">
                 <div class="row" id="OrderDetail">
